@@ -3,42 +3,37 @@ name: Run Cypress Tests and Display Results
 on:
   push:
     branches:
-      
-main
-pull_request:
-  branches:
-main
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
 
     steps:
-      
-name: Checkout Repository
-      uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
-      
-name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '16' # or any version you need
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16' # or any version you need
 
-      
-name: Install cypress
-      run: npm install cypress
+      - name: Install Cypress
+        run: npm install cypress
 
-name: Install Dependencies
-      run: npm install
-      
-name: Run Cypress Tests
-      run: npm run cypress:run
+      - name: Install Dependencies
+        run: npm install
 
-      
-name: Publish JUnit Results
-      uses: dorny/test-reporter@v1
-      with:
-        name: Cypress Tests
-        path: results/junit/*.xml
-        reporter: junit
-        fail-on-error: false
+      - name: Run Cypress Tests
+        run: npm run cypress:run
+
+      - name: Publish JUnit Results
+        uses: dorny/test-reporter@v1
+        with:
+          name: Cypress Tests
+          path: results/junit/*.xml
+          reporter: junit
+          fail-on-error: false
