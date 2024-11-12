@@ -3,7 +3,7 @@ import HomePage from "../pages/HomePage";
 const cpfPage = new CpfPage();
 const homePage = new HomePage();
 
-describe(['cpf'],'Netshoes Cpf', () => {
+describe('Netshoes Cpf', () => {
 
     beforeEach(() => {
       
