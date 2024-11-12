@@ -1,4 +1,4 @@
-import CheckoutPage from "../pages/checkoutPage"
+import CheckoutPage from "../pages/CheckoutPage"
 import HomePage from "../pages/HomePage"
 
 const checkoutPage = new CheckoutPage()
