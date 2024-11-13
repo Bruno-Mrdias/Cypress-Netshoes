@@ -8,7 +8,7 @@
     "checkout": "npx cypress run --env CYPRESS_INCLUDE_TAGS=@checkout",
     "cpf": "npx cypress run --env CYPRESS_INCLUDE_TAGS=@cpf",
     "category": "npx cypress run --env CYPRESS_INCLUDE_TAGS=@category",
-    "generateJunitReport": "jrm automation-report.xml results/junit/*.xml",
+    "generateJunitReport": "jrm -o automation-report.xml results/junit/*.xml",
     "generateHtmlReport": "npx mochawesome-report-generator -o results/mochawesome/html",
     "cloud": "npx cypress run --record --key 09ba169d-d26b-4daf-8e8e-fee77a14870c"
   },
