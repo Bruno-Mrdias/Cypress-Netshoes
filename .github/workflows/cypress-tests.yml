@@ -33,7 +33,8 @@ jobs:
 
         with:
           name: junit-results
-          path: ./tests/cypress-web/automation-report.xml
+          path: automation-report.xml
+          
       - name: Publish Test Report
         uses: dorny/test-reporter@v1
         if: always()
