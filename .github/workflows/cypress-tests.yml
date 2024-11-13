@@ -29,7 +29,8 @@ jobs:
         run: sleep 5
 
       - name: Upload JUnit test results
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3 
+        
         with:
           name: junit-results
           path: ./tests/cypress-web/automation-report.xml
