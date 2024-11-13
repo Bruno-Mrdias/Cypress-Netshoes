@@ -30,7 +30,7 @@ jobs:
 
         with:
           name: mocha-results
-          path: index.html
+          path: results/index.html
 
       # - name: Publish Test Report
       #   uses: dorny/test-reporter@v1
