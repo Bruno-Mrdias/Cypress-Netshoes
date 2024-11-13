@@ -24,7 +24,7 @@ jobs:
 
       - name: Navigate and List Files
         run: |
-          cd foldername/folder
+          cd results/junit
           ls
 
 
