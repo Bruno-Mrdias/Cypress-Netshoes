@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "checkout": "npx cypress run --env CYPRESS_INCLUDE_TAGS=@checkout",
-    "cpf": "npx cypress run --env CYPRESS_INCLUDE_TAGS=@cpf",
+    "cep": "npx cypress run --env CYPRESS_INCLUDE_TAGS=@cep",
     "category": "npx cypress run --env CYPRESS_INCLUDE_TAGS=@category",
     "generateJunitReport": "npx mochawesome-merge results/*.json | npx mocha-junit-reporter --reporter-options mochaFile=cypress/results/junit-report.xml",
     "generateHtmlReport": "npx mochawesome-report-generator -o results/mochawesome/html",

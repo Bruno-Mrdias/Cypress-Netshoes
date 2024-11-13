@@ -1,9 +1,9 @@
-import CpfPage from "../pages/CpfPage"
+import CepPage from "../pages/CepPage"
 import HomePage from "../pages/HomePage";
-const cpfPage = new CpfPage();
+const cepPage = new CepPage();
 const homePage = new HomePage();
 
-describe('Netshoes Cpf', () => {
+describe('Netshoes Cep', () => {
 
     beforeEach(() => {
       
@@ -11,11 +11,11 @@ describe('Netshoes Cpf', () => {
   
     })
 
-    it(['cpf'],'verify netshoes adding Cpf', () => {
+    it(['cep'],'verify netshoes adding Cep', () => {
      
         homePage.cepAddBtn().click();
 
-        cpfPage.AddCpf('37460-000');
+        cepPage.AddCep('37460-000');
 
      })
 

@@ -1,4 +1,4 @@
-class CpfPage {
+class CepPage {
 
     //Elements
     cepModal(){
@@ -15,7 +15,7 @@ class CpfPage {
     
     
     //Methods
-    AddCpf(cepNum){
+    AddCep(cepNum){
         this.cepModal().type(cepNum)
         this.cepModalBtn().click()
         this.cepZipCode().should('contain', cepNum)
@@ -23,4 +23,4 @@ class CpfPage {
 
 }
 
-export default CpfPage;
+export default CepPage;
