@@ -22,6 +22,12 @@ jobs:
       - name: Cypress run
         run:  npx cypress run
 
+      - name: Navigate and List Files
+        run: |
+          cd foldername/folder
+          ls
+
+
       - name: Merge reports
         run: npm run generateJunitReport
 
@@ -34,7 +40,7 @@ jobs:
         with:
           name: junit-results
           path: automation-report.xml
-          
+
       - name: Publish Test Report
         uses: dorny/test-reporter@v1
         if: always()
