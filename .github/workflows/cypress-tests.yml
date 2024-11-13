@@ -26,11 +26,11 @@ jobs:
         run: sleep 5
 
       - name: Upload mocha test results
-        uses: actions/upload-artifact@v3 
+        uses: actions/upload-artifact@v4 
 
         with:
           name: mocha-results
-          path: results/index.html
+          path: results/*.html
 
       # - name: Publish Test Report
       #   uses: dorny/test-reporter@v1
