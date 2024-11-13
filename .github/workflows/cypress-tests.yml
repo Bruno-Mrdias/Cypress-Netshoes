@@ -22,31 +22,22 @@ jobs:
       - name: Cypress run
         run:  npx cypress run
 
-      - name: Navigate and List Files
-        run: |
-          cd results/junit
-          ls
-
-
-      - name: Merge reports
-        run: npm run generateJunitReport
-
       - name: Sleep
         run: sleep 5
 
-      - name: Upload JUnit test results
+      - name: Upload mocha test results
         uses: actions/upload-artifact@v3 
 
         with:
-          name: junit-results
-          path: automation-report.xml
+          name: mocha-results
+          path: mochawesome.html
 
-      - name: Publish Test Report
-        uses: dorny/test-reporter@v1
-        if: always()
-        with:
-          name: Cypress Tests
-          path: automation-report.xml
-          reporter: jest-junit
+      # - name: Publish Test Report
+      #   uses: dorny/test-reporter@v1
+      #   
+      #   with:
+      #     name: Cypress Tests
+      #     path: automation-report.xml
+      #     reporter: jest-junit
 
     

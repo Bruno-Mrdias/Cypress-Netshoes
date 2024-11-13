@@ -5,11 +5,15 @@ const {tagify} = require ('cypress-tags')
 module.exports = defineConfig({
   projectId: "xrhohi",
   reporter: 'cypress-mochawesome-reporter',
+
   reporterOptions: {
-    reportDir: 'results/junit',
+    reportDir: 'results',
     overwrite: false,
-    html: false,
-    json: true,
+    html: true,
+    json: false,
+    charts: true,
+    reportPageTitle: 'Netshoes-automation-report',
+    embeddedScreenshots: true,
   },
   retries: {
     runMode: 1,
@@ -17,7 +21,7 @@ module.exports = defineConfig({
   },
     // Configure the JUnit reporter
     junit: {
-      reporterEnabled: true,
+      reporterEnabled: false,
       mochaFile: "reports/junit/test-results.xml",
       toConsole: true,
     },
