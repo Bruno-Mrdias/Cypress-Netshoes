@@ -12,7 +12,7 @@ describe('Netshoes Checkout', () => {
 
     })
 
-    it('netshoes verify checkout @checkout', () => {
+    it(['checkout'],'netshoes verify checkout', () => {
 
       homePage.categoryValText('Masculino','SELEÇÃO DE PRODUTOS PRA ELES!')
 

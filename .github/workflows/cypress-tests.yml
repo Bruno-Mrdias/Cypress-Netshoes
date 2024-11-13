@@ -1,39 +1,44 @@
-name: Run Cypress Tests and Display Results
-
+name: Cypress Tests
 on:
   push:
     branches:
-      - master
-  pull_request:
-    branches:
-      - master
-
+    - master
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-
+    defaults:
+      run: 
+        shell: bash
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16' # or any version you need
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Install Cypress
         run: npm install cypress
+        
+      - name: Install dependencies
+        run: npm install
 
-      - name: Install Dependencies
-        run: npm install --force
+      - name: Cypress run
+        run:  npx cypress run
 
-      - name: Run Cypress Tests
-        run: npx cypress run
+      - name: Merge reports
+        run: npm run generateJunitReport
 
-      - name: Publish JUnit Results
+      - name: Sleep
+        run: sleep 5
+
+      - name: Upload JUnit test results
+        uses: actions/upload-artifact@v2
+        with:
+          name: junit-results
+          path: ./tests/cypress-web/automation-report.xml
+      - name: Publish Test Report
         uses: dorny/test-reporter@v1
+        if: always()
         with:
           name: Cypress Tests
-          path: results/junit/*.xml
-          reporter: junit
-          fail-on-error: false
+          path: ./automation-report.xml
+          reporter: jest-junit
+
+    

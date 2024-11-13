@@ -11,7 +11,7 @@ describe('Netshoes Cpf', () => {
   
     })
 
-    it('verify netshoes adding Cpf @cpf', () => {
+    it(['cpf'],'verify netshoes adding Cpf', () => {
      
         homePage.cepAddBtn().click();
 

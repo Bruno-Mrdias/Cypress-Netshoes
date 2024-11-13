@@ -9,7 +9,7 @@ describe('Netshoes menu', () => {
 
   })
 
-  it('verify all netshoes  main categories', () => {
+  it(['category'],'verify all netshoes  main categories', () => {
     
     homePage.allCategoriesBtn().click();
     
@@ -17,104 +17,104 @@ describe('Netshoes menu', () => {
 
   })
 
-  it('verify netshoes Masculino category @category', () => {
+  it(['category'],'verify netshoes Masculino category', () => {
      
     homePage.categoryValText('Masculino','SELEÇÃO DE PRODUTOS PRA ELES!');
 
    })
 
-  it('verify netshoes Feminino category @category', () => {
+  it(['category'],'verify netshoes Feminino category', () => {
 
     homePage.categoryValText('Feminino','SELEÇÃO DE PRODUTOS PRA ELAS!')
   
    })
 
-   it('verify netshoes Infantil category @category @category', () => {
+   it(['category'],'verify netshoes Infantil category', () => {
 
     homePage.categoryValUrl('Infantil')
     cy.url().should('include', '/infantil')
     
    })
 
-   it('verify netshoes Calçados category @category', () => {
+   it(['category'],'verify netshoes Calçados category', () => {
 
     homePage.categoryValText('Calçados','CALÇADOS' )
    })
 
-   it('verify netshoes Roupas category @category', () => {
+   it(['category'],'verify netshoes Roupas category', () => {
 
     homePage.categoryValText('Roupas','CONFORTO E ESTILO PARA O DIA TODO')
   
    })
 
-   it('verify netshoes Suplementos category @category', () => {
+   it(['category'],'verify netshoes Suplementos category', () => {
 
     homePage.categoryValUrl('Suplementos')
     cy.url().should('include', '/suplementos')
    })
 
-   it('verify netshoes Games category @category', () => {
+   it(['category'],'verify netshoes Games category', () => {
 
     homePage.categoryValText('GAMES', 'games games')
 
    })
 
-   it('verify netshoes Equipamentos category @category', () => {
+   it(['category'],'verify netshoes Equipamentos category', () => {
 
     homePage.categoryValText('Equipamentos','Equipamentos e Acessórios Fitness')
       
    })
 
-   it('verify netshoes Promoções category @category', () => {
+   it(['category'],'verify netshoes Promoções category', () => {
 
     homePage.categoryValText('Promoções','OUTLET COM ATÉ 70% OFF')
   
 
    })
 
-   it('verify netshoes Categorias category @category', () => {
+   it(['category'],'verify netshoes Categorias category', () => {
 
     homePage.categoryValUrl('Categorias')
     cy.url().should('include', 'categorias')
     
    })
    
-   it('verify netshoes Sportstyle category @category', () => {
+   it(['category'],'verify netshoes Sportstyle category', () => {
 
     homePage.categoryHomePageUrl('SPORTSTYLE')
     cy.url().should('include', '/sportstyle')
 
    })
 
-   it('verify netshoes Corrida category @category', () => {
+   it(['category'],'verify netshoes Corrida category', () => {
 
     homePage.categoryHomePageUrl('CORRIDA')
     cy.url().should('include', '/corrida')
 
    })
 
-   it('verify netshoes Futebol category @category', () => {
+   it(['category'],'verify netshoes Futebol category', () => {
 
     homePage.categoryHomePageUrl('FUTEBOL')
     cy.url().should('include', '/futebol')
 
    })
 
-   it('verify netshoes Lojas Parceiras category @category', () => {
+   it(['category'],'verify netshoes Lojas Parceiras category', () => {
 
     homePage.categoryHomePageUrl('LOJAS PARCEIRAS')
     cy.url().should('include', '/lojasparceiras')
 
    })
 
-   it('verify netshoes Black November category @category', () => {
+   it(['category'],'verify netshoes Black November category', () => {
 
     homePage.categoryHomePageUrl('BLACK NOVEMBER')
     cy.url().should('include', '/black-friday')
 
    })
 
-   it('verify netshoes Cupons category @category', () => {
+   it(['category'],'verify netshoes Cupons category', () => {
 
     homePage.categoryHomePageTxt('CUPONS','Cupons Netshoes')
 

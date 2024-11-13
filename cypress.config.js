@@ -1,28 +1,31 @@
 const cypress = require("cypress");
-const cypressGrep = require("cypress-grep/src/plugin");
+const {tagify} = require ('cypress-tags')
 
 module.exports = {
   projectId: "xrhohi",
+  reporter: "junit",
+  reporterOptions: {
+    mochaFile: "results/my-test-output-[hash].xml",
+    toConsole: true,
+  },
+  retries: {
+    runMode: 1,
+    openMode: 1,
+  },
+    // Configure the JUnit reporter
+    junit: {
+      reporterEnabled: true,
+      mochaFile: "cypress/reports/junit/test-results.xml",
+      toConsole: true,
+    },
+    experimentalStudio: true,
   e2e: {
     setupNodeEvents(on, config) {
       // implement node event listeners here
-      require("cypress-mochawesome-reporter/plugin")(on);
-      cypressGrep(config);
+      on('file:preprocessor', tagify(config));
       return config;
     },
+    baseUrl: "https://www.netshoes.com.br",
     scrollBehavior: false,
-    reporter: 'cypress-multi-reporters',
-    reporterOptions: {
-      reporterEnabled: 'mocha-junit-reporter, mochawesome',
-      mochaJunitReporterReporterOptions: {
-        mochaFile: 'results/junit/test-results-[hash].xml',
-      },
-      mochawesomeReporterOptions: {
-        reportDir: 'results/mochawesome',
-        overwrite: false,
-        html: true,
-        json: false,
-      },
-    },
   },
 };
