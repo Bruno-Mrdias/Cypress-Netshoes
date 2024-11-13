@@ -8,7 +8,7 @@
     "checkout": "npx cypress run --env CYPRESS_INCLUDE_TAGS=@checkout",
     "cpf": "npx cypress run --env CYPRESS_INCLUDE_TAGS=@cpf",
     "category": "npx cypress run --env CYPRESS_INCLUDE_TAGS=@category",
-    "generateJunitReport": "jrm -o automation-report.xml results/junit/*.xml",
+    "generateJunitReport": "npx mochawesome-merge results/*.json | npx mocha-junit-reporter --reporter-options mochaFile=cypress/results/junit-report.xml",
     "generateHtmlReport": "npx mochawesome-report-generator -o results/mochawesome/html",
     "cloud": "npx cypress run --record --key 09ba169d-d26b-4daf-8e8e-fee77a14870c"
   },
@@ -16,8 +16,10 @@
   "author": "Bruno Matheus Ribeiro Dias da Silva",
   "license": "ISC",
   "devDependencies": {
+    "cypress-mochawesome-reporter": "^3.8.2",
     "cypress-tags": "^1.2.2",
-    "junit-report-merger": "^7.0.0",
+    "mocha-junit-reporter": "^2.2.1",
+    "mochawesome-merge": "^4.3.0",
     "typescript": "^5.6.3"
   },
   "dependencies": {

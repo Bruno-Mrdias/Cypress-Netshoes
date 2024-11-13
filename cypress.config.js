@@ -1,12 +1,15 @@
-const cypress = require("cypress");
+const {defineConfig} = require("cypress");
 const {tagify} = require ('cypress-tags')
+//import ('cypress-mochawesome-reporter/register');
 
-module.exports = {
+module.exports = defineConfig({
   projectId: "xrhohi",
-  reporter: "junit",
+  reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
-    mochaFile: "results/my-test-output-[hash].xml",
-    toConsole: true,
+    reportDir: 'results/junit',
+    overwrite: false,
+    html: false,
+    json: true,
   },
   retries: {
     runMode: 1,
@@ -15,17 +18,23 @@ module.exports = {
     // Configure the JUnit reporter
     junit: {
       reporterEnabled: true,
-      mochaFile: "cypress/reports/junit/test-results.xml",
+      mochaFile: "reports/junit/test-results.xml",
       toConsole: true,
     },
     experimentalStudio: true,
   e2e: {
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      require('cypress-mochawesome-reporter/plugin')(on); // Add this line
       on('file:preprocessor', tagify(config));
       return config;
     },
     baseUrl: "https://www.netshoes.com.br",
     scrollBehavior: false,
   },
-};
+});
+
+// projectId: "xrhohi",
+//   reporter: "junit",
+//   reporterOptions: {
+//     mochaFile: "results/my-test-output-[hash].xml",
+//     toConsole: true,
