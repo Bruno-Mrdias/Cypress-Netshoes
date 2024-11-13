@@ -30,7 +30,7 @@ jobs:
 
       - name: Upload JUnit test results
         uses: actions/upload-artifact@v3 
-        
+
         with:
           name: junit-results
           path: ./tests/cypress-web/automation-report.xml
@@ -39,7 +39,7 @@ jobs:
         if: always()
         with:
           name: Cypress Tests
-          path: ./automation-report.xml
+          path: automation-report.xml
           reporter: jest-junit
 
     
